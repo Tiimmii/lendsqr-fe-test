@@ -1,8 +1,9 @@
+import DashboardHeader from "../components/DashboardHeader"
 
 const Dashboard = () => {
   return (
     <div>
-      Dashboard
+      <DashboardHeader/>
     </div>
   )
 }
