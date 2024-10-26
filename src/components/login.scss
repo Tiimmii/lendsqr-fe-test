@@ -21,6 +21,7 @@ $lendsqr-text-primary-color: #213F7D;
   }
 
   .sign-in-picture-container {
+    margin-left: 5%;
     img {
       width: 100%;
     }
@@ -29,7 +30,6 @@ $lendsqr-text-primary-color: #213F7D;
   .login-form-container {
     width: 50%;
     display: flex;
-    flex: 1;
 
     .login-form {
       display: flex;
@@ -48,7 +48,7 @@ $lendsqr-text-primary-color: #213F7D;
         margin-bottom: 40px;
 
         .welcome-primary {
-          font-weight: 800;
+          font-weight: bold;
           font-size: 40px;
           line-height: 54px;
           color: $lendsqr-text-primary-color;
@@ -90,6 +90,7 @@ $lendsqr-text-primary-color: #213F7D;
             text-transform: uppercase;
             font-size: 12px;
             font-weight: 600;
+            line-height: 17px;
           }
 
           .login-button {
@@ -134,7 +135,16 @@ $lendsqr-text-primary-color: #213F7D;
     height: 48px; /* Button height remains the same */
   }
 }
+@media (max-width: 1120px) {
+  .login-form-container {
+    width: 70% !important; /* Full width on smaller devices */
 
+  }
+  .login-form {
+    width: 100% !important;
+    padding: 15px !important;
+  }
+}
 @media (max-width: 764px) {
   .sign-in-picture-container {
     img {
@@ -144,9 +154,9 @@ $lendsqr-text-primary-color: #213F7D;
 
   .logo-container {
     img {
-      /* Adjust logo position or size as needed */
-      top: 10%; /* Example adjustment */
-      left: 5%; /* Example adjustment */
+      /* Adjusted logo position or size as needed */
+      top: 10%; 
+      left: 5%; 
     }
   }
 
@@ -158,8 +168,18 @@ $lendsqr-text-primary-color: #213F7D;
   }
 
   .login-form {
-    width: 100% !important; 
+    width: 100% !important;
+    padding: 20px !important;
+    .login-texts-top{
+      .welcome-primary {
+        font-size: 30px !important;
+      }
+      span{
+        font-size: 20px !important;
+      }
+    }
   }
+
 
   .form form input {
     height: 40px; /* Retain original height */
