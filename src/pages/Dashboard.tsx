@@ -1,8 +1,9 @@
 import DashboardHeader from "../components/DashboardHeader"
+import '../components/styles/dashboard.scss'
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="dashboard-container">
       <DashboardHeader/>
     </div>
   )
