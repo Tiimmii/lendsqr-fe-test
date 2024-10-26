@@ -1,6 +1,7 @@
 .dashboard-container{
     height: 100vh;
     background: #FBFBFB;
+    font-family: 'Work Sans', sans-serif;
 }
 .dashboard-header-container,.header-left-items,.header-right-items, .user-header-profile{
     display: flex;
@@ -14,7 +15,6 @@
     width: 100%;
     justify-content: space-between;
     background: #fff;
-    font-family: 'Work Sans', sans-serif;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     .header-left-items{
@@ -97,7 +97,76 @@
     height: 100%;
     background: #fff;
     overflow-y: scroll;
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
+    p{
+        color: #7A8CB1;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18.77px;
+        margin-left: 10px;
+    }
+    i{
+        color: #213F7D;
+        font-size: 16px;
+    }
+    span{
+        color: #545F7D;
+        font-size: 12px;
+        line-height: 14.08px;
+        font-weight: 500;
+        padding-left: 28px;
+    }
     .sidebar{
-        margin-top: 7rem;
+        margin-top: 8rem;
+        .sidebar-top-options{
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-bottom: 40px;
+            i{
+                padding-left: 28px;
+            }
+            i, p{
+                padding-top: 10px;
+            }
+            .switch-organization{
+                display: flex;
+                p{
+                    color: #213F7D !important;
+                }
+            }
+            .sidebar-dashboard-option{
+                display: flex;
+            }
+        }
+        .sidebar-options{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            .sidebar-option{
+                display: flex;
+                height: 40px;
+                &:hover{
+                    background: #F3FCFC;
+                    height: 40px;
+                }
+                &:hover::before{
+                    content: '';
+                    position: absolute;
+                    width: 3px;
+                    height: 40px;
+                    background: #39CDCC;
+                    margin: 0;
+                }
+            i, p{
+                padding-top: 10px;
+            }
+            i{
+                padding-left: 28px;
+            }
+            }
+        }
     }
 }

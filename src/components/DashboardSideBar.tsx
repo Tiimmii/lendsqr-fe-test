@@ -10,14 +10,15 @@ const DashboardSideBar = () => {
                 <div className="switch-organization">
                     <i className="fa-solid fa-briefcase"></i>
                     <p>Switch Organization</p>
+                    <i className="fa-solid fa-angle-down" style={{ marginLeft: '-17px' }}></i>
                 </div>
                 <div className="sidebar-dashboard-option">
                     <i className="fa-solid fa-house-chimney"></i>
                     <p>Dashboard</p>
                 </div>
             </div>
+            <span>CUSTOMERS</span>
             <div className="sidebar-options">
-                <span>CUSTOMERS</span>
                 <div className="sidebar-option">
                     <i className="fa-solid fa-user-group"></i>
                     <p>Users</p>
@@ -46,8 +47,9 @@ const DashboardSideBar = () => {
                     <i className="fa-solid fa-user-xmark"></i>
                     <p>karma</p>
                 </div>
-
-                <span>BUSINESSES</span>
+            </div>
+            <span>BUSINESSES</span>
+            <div className="sidebar-options">
                 <div className="sidebar-option">
                     <i className="fa-solid fa-briefcase"></i>
                     <p>Organization</p>
@@ -84,8 +86,9 @@ const DashboardSideBar = () => {
                     <i className="fa-solid fa-chart-column"></i>
                     <p>Reports</p>
                 </div>
-
-                <span>SETTINGS</span>
+            </div>
+            <span>SETTINGS</span>
+            <div className="sidebar-options">   
                 <div className="sidebar-option">
                     <i className="fa-solid fa-sliders"></i>
                     <p>Preferences</p>
