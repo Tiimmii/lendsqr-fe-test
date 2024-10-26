@@ -1,7 +1,8 @@
+import '../components/style.scss'
 
 const Login = () => {
   return (
-    <div>
+    <div className='main-container'>
       Login
     </div>
   )
