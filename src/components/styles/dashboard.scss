@@ -184,7 +184,8 @@
         margin-bottom: 2rem;
     }
     .dashboard-content-title,.dashboard-floating-boxes-container{
-        margin-left: 2rem;
+        margin-left: auto;
+        padding-left: 1rem;
     }
     .dashboard-floating-boxes-container{
         display: flex;

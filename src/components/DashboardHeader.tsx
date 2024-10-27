@@ -1,4 +1,3 @@
-import React from 'react'
 import grouped_icon from '../assets/Group.svg'
 import user_profile_picture from '../assets/image 4.png'
 import './styles/dashboard.scss'
