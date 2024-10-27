@@ -1,109 +1,95 @@
-import './styles/dashboard.scss'
+import { useState } from 'react';
+import './styles/dashboard.scss';
 
 {/* The Dashboard Sidebar Component */}
 const DashboardSideBar = () => {
-  return (
-    <div className='sidebar-container'>
-        <div className="sidebar">
-            <div className="sidebar-top-options">
-                <div className="switch-organization">
-                    <i className="fa-solid fa-briefcase"></i>
-                    <p>Switch Organization</p>
-                    <i className="fa-solid fa-angle-down" style={{ marginLeft: '-17px' }}></i>
+    const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+
+    const handleOptionClick = (index: number) => {
+        setClickedIndex(index === clickedIndex ? null : index);
+    };
+
+    return (
+        <div className='sidebar-container'>
+            <div className="sidebar">
+                <div className="sidebar-top-options">
+                    <div className="switch-organization">
+                        <i className="fa-solid fa-briefcase"></i>
+                        <p>Switch Organization</p>
+                        <i className="fa-solid fa-angle-down" style={{ marginLeft: '-17px' }}></i>
+                    </div>
+                    <div className="sidebar-dashboard-option">
+                        <i className="fa-solid fa-house-chimney"></i>
+                        <p>Dashboard</p>
+                    </div>
                 </div>
-                <div className="sidebar-dashboard-option">
-                    <i className="fa-solid fa-house-chimney"></i>
-                    <p>Dashboard</p>
+
+                <span>CUSTOMERS</span>
+                <div className="sidebar-options">
+                    {[
+                        { label: "Users", icon: "fa-user-group" },
+                        { label: "Guarantors", icon: "fa-users" },
+                        { label: "Decision Models", icon: "fa-handshake" },
+                        { label: "Savings", icon: "fa-piggy-bank" },
+                        { label: "Loan Requests", icon: "fa-hand-holding-dollar" },
+                        { label: "Whitelist", icon: "fa-user-check" },
+                        { label: "Karma", icon: "fa-user-xmark" }
+                    ].map((option, index) => (
+                        <div
+                            key={option.label}
+                            onClick={() => handleOptionClick(index)}
+                            className={`sidebar-option ${clickedIndex === index ? 'clicked' : ''}`}
+                        >
+                            <i className={`fa-solid ${option.icon}`}></i>
+                            <p>{option.label}</p>
+                        </div>
+                    ))}
                 </div>
-            </div>
-            <span>CUSTOMERS</span>
-            <div className="sidebar-options">
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-user-group"></i>
-                    <p>Users</p>
+
+                <span>BUSINESSES</span>
+                <div className="sidebar-options">
+                    {[
+                        { label: "Organization", icon: "fa-briefcase" },
+                        { label: "Loan Products", icon: "fa-hand-holding-dollar" },
+                        { label: "Savings Products", icon: "fa-building-columns" },
+                        { label: "Fees and Charges", icon: "fa-coins" },
+                        { label: "Transactions", icon: "fa-money-bill-transfer" },
+                        { label: "Services", icon: "fa-fan" },
+                        { label: "Service Account", icon: "fa-user-gear" },
+                        { label: "Settlements", icon: "fa-scroll" },
+                        { label: "Reports", icon: "fa-chart-column" }
+                    ].map((option, index) => (
+                        <div
+                            key={option.label}
+                            onClick={() => handleOptionClick(index + 7)} // Offset index to avoid conflicts with previous section
+                            className={`sidebar-option ${clickedIndex === index + 7 ? 'clicked' : ''}`}
+                        >
+                            <i className={`fa-solid ${option.icon}`}></i>
+                            <p>{option.label}</p>
+                        </div>
+                    ))}
                 </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-users"></i>
-                    <p>Guarantors</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-regular fa-handshake"></i>
-                    <p>Decision Models</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-piggy-bank"></i>
-                    <p>Savings</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-hand-holding-dollar"></i>
-                    <p>Loan Requests</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-user-check"></i>
-                    <p>Whitelist</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-user-xmark"></i>
-                    <p>karma</p>
-                </div>
-            </div>
-            <span>BUSINESSES</span>
-            <div className="sidebar-options">
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-briefcase"></i>
-                    <p>Organization</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-hand-holding-dollar"></i>
-                    <p>Loan Products</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-building-columns"></i>
-                    <p>Savings Products</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-coins"></i>
-                    <p>Fees and Charges</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-money-bill-transfer"></i>
-                    <p>Transactions</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-fan"></i>
-                    <p>Services</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-user-gear"></i>
-                    <p>Service Account</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-scroll"></i>
-                    <p>Settlements</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-chart-column"></i>
-                    <p>Reports</p>
-                </div>
-            </div>
-            <span>SETTINGS</span>
-            <div className="sidebar-options">   
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-sliders"></i>
-                    <p>Preferences</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-certificate"></i>
-                    <p>Fees and Pricing</p>
-                </div>
-                <div className="sidebar-option">
-                    <i className="fa-solid fa-clipboard-list"></i>
-                    <p>Audit logs</p>
+
+                <span>SETTINGS</span>
+                <div className="sidebar-options">
+                    {[
+                        { label: "Preferences", icon: "fa-sliders" },
+                        { label: "Fees and Pricing", icon: "fa-certificate" },
+                        { label: "Audit logs", icon: "fa-clipboard-list" }
+                    ].map((option, index) => (
+                        <div
+                            key={option.label}
+                            onClick={() => handleOptionClick(index + 16)} // Offset index to avoid conflicts with previous sections
+                            className={`sidebar-option ${clickedIndex === index + 16 ? 'clicked' : ''}`}
+                        >
+                            <i className={`fa-solid ${option.icon}`}></i>
+                            <p>{option.label}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
-    </div>
-  )
+    );
 }
 
-export default DashboardSideBar
+export default DashboardSideBar;

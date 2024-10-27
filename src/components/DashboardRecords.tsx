@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/dashboard.scss'
 
-type recordProps = {
+type DashboardRecordsProps = {
     records : never[]
+    maxItems : number
 }
 
-const DashboardRecords = ({records}:recordProps) => {
+const DashboardRecords = ({records, maxItems}:DashboardRecordsProps) => {
+
   return (
     <div className="dashboard-records-container">
         <div className="dashboard-records-table-header">
@@ -34,7 +36,7 @@ const DashboardRecords = ({records}:recordProps) => {
                 <i className="fa-solid fa-bars"></i>
             </div>
         </div>
-        {records? records.map((item) => (
+        {records? records.slice(0, maxItems).map((item) => (
         <div className='table-row-container'>
             <div className="table-row" key={item["id"]}>
                 <div>{item["organization"]}</div>
