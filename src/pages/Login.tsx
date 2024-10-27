@@ -1,8 +1,26 @@
 import '../components/styles/login.scss'
 import grouped_icon from '../assets/Group.svg'
 import sign_in_picture from '../assets/pablo-sign-in 1.svg'
+import { useState } from 'react'
 
 const Login = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
+
+    const settingEmailValue = (e: React.ChangeEvent<HTMLInputElement>)=>{
+        setEmail(e.target.value)
+    }
+
+    const settingPasswordValue = (e: React.ChangeEvent<HTMLInputElement>)=>{
+        setPassword(e.target.value)
+    }
+
+    const togglePasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        setShowPassword(prevState => !prevState);
+    };
+
   return (
     <div className='main-container'>
       <div className="logo-container">
@@ -19,8 +37,13 @@ const Login = () => {
             </div>
             <div className="form">
                 <form>
-                    <input placeholder='Email'></input>
-                    <input placeholder='Password'></input>
+                    <input placeholder='Email' type='email' value={email} onChange={settingEmailValue}></input>
+                    <div className="password-input">
+                        <input placeholder='Password' value={password} onChange={settingPasswordValue} type={showPassword? 'text': 'password'}></input>
+                        <button className='show-hide-password-button' onClick={togglePasswordVisibility}>
+                            {password ?showPassword ? <p>HIDE</p>: <p>SHOW</p>:''}
+                        </button>
+                    </div>
                     <a href='#'>Forgot Password?</a>
                     <button className='login-button'>Login</button>
                 </form>
