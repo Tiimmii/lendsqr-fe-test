@@ -42,7 +42,7 @@ const DashboardRecords = ({records}:recordProps) => {
                 <div>{item["email"]}</div>
                 <div>{item["phone_number"]}</div>
                 <div>{item["date_joined"]}</div>
-                <div>{item["status"]}</div>
+                <div className={'dashboard-table-status '+item["status"]}>{item["status"]}</div>
             </div>
             <div className='table-options'><i className="fa-solid fa-ellipsis-vertical"></i></div>
         </div>

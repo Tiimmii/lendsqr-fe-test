@@ -267,20 +267,49 @@
 
     .table-row-container{
         display: flex;
+        align-items: center;
         color: #545F7D;
         min-width: 100%;
         .table-row {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
+            justify-content: center;
+            align-items: center;
             font-size: 14px;
             width: 100%;
             font-weight: 400;            
             line-height: 16.42px;
             border-bottom: 1px solid #213F7D1A;
     
-            div {
+            div{
                 display: block;
                 padding-bottom: 13px;
+            }
+            .dashboard-table-status{
+                width: 75px;
+                text-transform: capitalize;
+                height: 17px;
+                padding: 10px;
+                border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .active{
+                background: #F3FCF6;
+                color: #39CD62;
+            }
+            .inactive{
+                background: #F5F5F7;
+            }
+            .blacklisted{
+                background: #FCE6EB;
+                color: #E4033B;
+            }
+            .pending{
+                background: #FDF7E5;
+                color: #F1CC56;
             }
         }
         .table-options{
