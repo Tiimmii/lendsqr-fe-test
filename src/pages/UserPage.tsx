@@ -52,4 +52,12 @@ const UserPage = () => {
   )
 }
 
-export default UserPage
+const OptionBox = ()=>{
+    return(
+        <div className="option-box-container">
+            
+        </div>
+    )
+}
+
+export default UserPage; OptionBox;
