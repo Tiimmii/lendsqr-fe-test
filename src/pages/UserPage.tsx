@@ -1,6 +1,6 @@
 import '../components/styles/dashboard.scss';
 
-const UserPage = () => {
+export const UserPage = () => {
   return (
     <div className='filter-users-by-oragnization-container'>
         <div className="filter">
@@ -52,12 +52,22 @@ const UserPage = () => {
   )
 }
 
-const OptionBox = ()=>{
+export const OptionBox = ()=>{
     return(
         <div className="option-box-container">
-            
+            <div className="options">
+                <i className="fa-regular fa-eye"></i>
+                <p>View Details</p>
+            </div>
+            <div className="options">
+                <i className="fa-solid fa-user-xmark"></i>
+                <p>Blacklist User</p>
+            </div>
+            <div className="options">
+                <i className="fa-solid fa-user-check"></i>
+                <p>Activate User</p>
+            </div>
         </div>
     )
 }
 
-export default UserPage; OptionBox;
