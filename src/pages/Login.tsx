@@ -37,9 +37,9 @@ const Login = () => {
             </div>
             <div className="form">
                 <form>
-                    <input placeholder='Email' type='email' value={email} onChange={settingEmailValue}></input>
+                    <input placeholder='Email' type='email' value={email} onChange={settingEmailValue} required></input>
                     <div className="password-input">
-                        <input placeholder='Password' value={password} onChange={settingPasswordValue} type={showPassword? 'text': 'password'}></input>
+                        <input placeholder='Password' value={password} onChange={settingPasswordValue} type={showPassword? 'text': 'password'} required></input>
                         <button className='show-hide-password-button' onClick={togglePasswordVisibility}>
                             {password ?showPassword ? <p>HIDE</p>: <p>SHOW</p>:''}
                         </button>

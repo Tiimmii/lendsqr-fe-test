@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './styles/dashboard.scss'
+import UserPage from '../pages/UserPage'
 
 type DashboardRecordsProps = {
     records : never[]
@@ -14,6 +15,7 @@ const DashboardRecords = ({records, maxItems}:DashboardRecordsProps) => {
             <div className='table-header-texts'>
                 ORGANIZATION
                 <i className="fa-solid fa-bars"></i>
+                <UserPage/>
             </div>
             <div className='table-header-texts'>
                 USERNAME

@@ -145,6 +145,7 @@
             gap: 1rem;
             margin-top: 1rem;
             margin-bottom: 2rem;
+            cursor: pointer;
             .sidebar-option{
                 display: flex;
                 height: 40px;
@@ -289,8 +290,74 @@
 
         .table-header-texts {
             display: flex;
+            position: relative;
             gap: 5px;
             align-items: center;
+            .filter-users-by-oragnization-container{
+                position: absolute;
+                width: 270px;
+                top: 100%;
+                margin-top: 20px;
+                background: #fff;
+                z-index: 999;
+                box-shadow: 4px 2px 10px rgba(0, 0, 0, 0.1);
+
+                .filter{
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 17px;
+                    p{
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 16.42px;
+                        margin-bottom: 7px;
+                    }
+                    select, input{
+                        border-radius: 8px;
+                        outline: none;
+                        border: 1px solid #DEE3EB;
+                        padding: 14px;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 16.42px;
+                        color: #545F7D;
+                    }
+                    select{
+                        width: 100%;
+                    }
+                    input{
+                        width: 90%;
+                    }
+                    .filter-users-bottom{
+                        display: flex;
+                        width: 100%;
+                        gap: 10px;
+                        margin-top: 20px;
+                        .reset-button, .filter-button{
+                            font-size: 14px;
+                            font-weight: 600;
+                            line-height: 16.42px;
+                        }
+                        .reset-button{
+                            border: 1px solid #545F7D;
+                            border-radius: 8px;
+                            background: none;
+                            padding: 12px;
+                            width: 43%;
+                            color: #545F7D;
+                        }
+                        .filter-button{
+                            background: #39CDCC;
+                            color: #fff;
+                            border-radius: 8px;
+                            border: none;
+                            padding: 12px;
+                            width: 43%;
+                        }
+                    }
+                }
+            }
         }
     }
 
