@@ -591,5 +591,44 @@
     }
   }
 .user-detail-bottom-box-container{
-
+    padding-bottom: 10px;
+    .user-details{
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        p{
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 18.77px;
+            color: #213F7D;
+        }
+        .outlined-user-details-container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6rem;
+            margin-top: 20px;
+            .outlined-user-details{
+                p{
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 14.08px;
+                    color: #545F7D;
+                    margin-bottom: 10px;
+                }
+                span{
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 18.77px;
+                    color: #545F7D;
+                }
+            }
+        }
+        .user-detail-divider{
+            height: 1px;
+            width: 100%;
+            background-color: #545f7d;
+            opacity: 10%;
+        }
+    }
 }  
