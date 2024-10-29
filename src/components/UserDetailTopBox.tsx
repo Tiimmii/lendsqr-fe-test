@@ -54,7 +54,7 @@ const UserDetailTopBox = () => {
                 const active = activeTab == tab;
                 return (
                 <button
-                    className="userdetails-main-tabs-buttons active"
+                    className={`userdetails-main-tabs-buttons ${active && 'active'}`}
                     onClick={() => setActiveTab(tab)}
                 >
                     {tab}

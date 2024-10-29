@@ -577,7 +577,8 @@
           }
         }
         .active{
-            &:hover::before{
+            color: #39CDCC;
+            &::before{
                 content: '';
                 position: absolute;
                 bottom: -45%;
