@@ -9,10 +9,15 @@
 
     const DashboardRecords = ({ records, maxItems }: DashboardRecordsProps) => {
         const [activeHeader, setActiveHeader] = useState<string | null>(null);
+        const [activeOption, setActiveOption] = useState<string | null>(null);
 
         const toggleUserPage = (headerLabel: string) => {
             setActiveHeader(activeHeader === headerLabel ? null : headerLabel);
         };
+
+        const toggleOptionBox = (option: string) => {
+            setActiveOption(activeOption === option? null : option);
+        }
 
         return (
             <div className="dashboard-records-container">

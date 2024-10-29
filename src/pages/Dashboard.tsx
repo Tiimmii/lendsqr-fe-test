@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        axios.get('https://run.mocky.io/v3/bb22da96-cc89-4146-8c1e-b846102cbb1b')
+        axios.get('https://run.mocky.io/v3/93f1c2ca-0c24-4b5a-b552-824867385d7f')
             .then(result => { setData(result.data); })
             .catch(error => console.log(error));
     }, []);
