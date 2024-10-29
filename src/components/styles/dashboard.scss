@@ -500,14 +500,17 @@
       }
     }
   }
-  .userdetails-mainContainer {
+  .userdetails-mainContainer, .user-detail-bottom-box-container{
     flex: 1;
     margin-left: 17rem;
+    margin-bottom: 25px;
     padding: 15px;
     padding-bottom: 10px;
     box-shadow: 4px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;    
+}
+  .userdetails-mainContainer {
     .userdetails-main {
-      background-color: white;
       padding: 40px;
       flex: 1;
       border-radius: 4px;
@@ -587,4 +590,6 @@
       }
     }
   }
-  
+.user-detail-bottom-box-container{
+
+}  

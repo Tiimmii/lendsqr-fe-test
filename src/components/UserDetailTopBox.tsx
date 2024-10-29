@@ -20,35 +20,34 @@ const UserDetailTopBox = () => {
     ];
     const [activeTab, setActiveTab] = useState(tabs[0]);
     return (
-    
-        <div className="userdetails-mainContainer">
+    <div className="userdetails-mainContainer">
         <div className="userdetails-main">
             <div>
-            <img src={Avatar} />
-            <div>
-                <h2>{user.name}</h2>
-                <p>{user.id}</p>
-            </div>
-            <div className="line"></div>
-            <div>
-                <p>User's Tier</p>
-                <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: "5px",
-                }}
-                >
-                <img src={starfilled} alt="" /> <img src={star} alt="" />{" "}
-                <img src={star} alt="" />
+                <img src={Avatar} />
+                <div>
+                    <h2>{user.name}</h2>
+                    <p>{user.id}</p>
                 </div>
-            </div>
-            <div className="line"></div>
-            <div>
-                <h2>{user.money}</h2>
-                <p>{user.bankDetails}</p>
-            </div>
+                <div className="line"></div>
+                <div>
+                    <p>User's Tier</p>
+                        <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            gap: "5px",
+                        }}
+                        >
+                        <img src={starfilled} alt="" /> <img src={star} alt="" />{" "}
+                        <img src={star} alt="" />
+                    </div>
+                </div>
+                <div className="line"></div>
+                <div>
+                    <h2>{user.money}</h2>
+                    <p>{user.bankDetails}</p>
+                </div>
             </div>
             <div className="userdetails-main-tabs">
             {tabs.map((tab: string) => {
@@ -64,7 +63,7 @@ const UserDetailTopBox = () => {
             })}
             </div>
         </div>
-        </div>
+    </div>
     );
 }
 

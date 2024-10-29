@@ -3,6 +3,7 @@ import DashboardHeader from "../components/DashboardHeader";
 import DashboardSideBar from "../components/DashboardSideBar";
 import Back from "../assets/Back.svg";
 import UserDetailTopBox from '../components/UserDetailTopBox';
+import UserDetailBottomBox from '../components/UserDetailBottomBox';
 
 const UserDetails = () => {
   return(
@@ -23,6 +24,7 @@ const UserDetails = () => {
         </div>
       </div>
       <UserDetailTopBox/>
+      <UserDetailBottomBox/>
     </div>
   )
 };
