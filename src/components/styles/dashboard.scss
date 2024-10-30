@@ -363,7 +363,9 @@
             }
         }
     }
-
+    .table-row-link{
+        text-decoration: none;
+    }
     .table-row-container{
         display: flex;
         align-items: center;
@@ -431,6 +433,9 @@
             }
         }
     }
+}
+.user-detail-container{
+
 }
 .userdetails-container {
     height: 100vh;
@@ -608,7 +613,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6rem;
-            margin-top: 20px;
             .outlined-user-details{
                 p{
                     font-size: 12px;
@@ -622,6 +626,7 @@
                     font-weight: 500;
                     line-height: 18.77px;
                     color: #545F7D;
+                    text-transform: capitalize;
                 }
             }
         }

@@ -3,13 +3,12 @@ import starfilled from "../assets/star-filled.svg";
 import star from "../assets/star.svg";
 import { useState } from "react";
 
-const UserDetailTopBox = () => {
-    const user = {
-        name: "Grace Effiom",
-        id: "LSQFf587g90",
-        money: "₦200,000.00",
-        bankDetails: "9912345678/Providus Bank",
-    };
+type UserDetailTopBoxProps = {
+    userDetails: Record<string, any>[];
+};
+
+
+const UserDetailTopBox = ({userDetails}: UserDetailTopBoxProps) => {
     const tabs = [
     "General Details",
     "Documents",
@@ -22,33 +21,63 @@ const UserDetailTopBox = () => {
     return (
     <div className="userdetails-mainContainer">
         <div className="userdetails-main">
-            <div>
-                <img src={Avatar} />
+        {userDetails.map((item) => (
+            <div key={item.id}>
+                <img src={Avatar} alt="User Avatar" />
                 <div>
-                    <h2>{user.name}</h2>
-                    <p>{user.id}</p>
+                    <h2>{item.username}</h2>
+                    <p>{item.Id_key}</p>
                 </div>
                 <div className="line"></div>
                 <div>
                     <p>User's Tier</p>
-                        <div
+                    <div>
+                        {item["User's_Tier"]===1?
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                                gap: "5px",
+                            }}>
+                                <img src={starfilled} alt="Filled Star" /> 
+                                <img src={star} alt="Star" />
+                                <img src={star} alt="Star" />
+                            </div>:
+                        item["User's_Tier"]===2?
+                        <div style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            gap: "5px",
+                        }}>
+                            <img src={starfilled} alt="Filled Star" /> 
+                            <img src={starfilled} alt="Star" />
+                            <img src={star} alt="Star" />
+                        </div>:
+                        item["User's_Tier"]===3?
+                        <div 
                         style={{
                             display: "flex",
                             flexDirection: "row",
                             alignItems: "center",
                             gap: "5px",
-                        }}
-                        >
-                        <img src={starfilled} alt="" /> <img src={star} alt="" />{" "}
-                        <img src={star} alt="" />
+                        }}>
+                            <img src={starfilled} alt="Filled Star" /> 
+                            <img src={starfilled} alt="Star" />
+                            <img src={starfilled} alt="Star" />
+                        </div>:
+                        ''    
+                        }
                     </div>
                 </div>
                 <div className="line"></div>
                 <div>
-                    <h2>{user.money}</h2>
-                    <p>{user.bankDetails}</p>
+                    <h2>{item.account_balance}</h2>  {/* Use item instead of user */}
+                    <p>{item.bank_name}/{item.account_number}</p>  {/* Use item instead of user */}
                 </div>
             </div>
+        ))}
+
             <div className="userdetails-main-tabs">
             {tabs.map((tab: string) => {
                 const active = activeTab == tab;

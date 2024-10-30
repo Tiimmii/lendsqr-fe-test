@@ -12,7 +12,7 @@ const Pages = () => {
 				{/* <Route path="/" element={<Landing />} /> */}
 				<Route path="/login" element={<Login />} />
                 <Route path="/dashboard" element={<Dashboard/>}/>
-				<Route path="/user-details" element={<UserDetails/>}/>
+				<Route path="/user-details/:id" element={<UserDetails/>}/>
 			</Routes>
 		</div>
 	);
