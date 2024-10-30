@@ -103,11 +103,11 @@ const Dashboard = () => {
                         out of {data.length}
                     </label>
                     <div className="pagination">
-                        <button onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}>
+                        <button onClick={() => handlePageChange(Math.max(currentPage - 1, 1))} className="pagination-buttons">
                             <i className="fa-solid fa-angle-left"></i>
                         </button>
                         {renderPagination()}
-                        <button onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}>
+                        <button onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))} className="pagination-buttons">
                             <i className="fa-solid fa-angle-right"></i>
                         </button>
                     </div>

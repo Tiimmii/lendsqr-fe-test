@@ -266,6 +266,36 @@
                     outline: none;
                 }
             }
+        }
+        .pagination{
+            display: flex;
+            justify-content: end;
+            width: auto;
+            gap: 35%;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 18.77px;
+            .active{
+                color: #000;
+            }
+            .pagination-buttons{
+                padding: 5px;
+                text-align: center;
+                width: 24px;
+                height: 24px;
+                background: #E5E8EE;
+                color: #7689AE;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+            button{
+                background: none;
+                height: 24px;
+                border: none;
+                outline: none;
+                color: #545F7D;
+            }
         } 
     }
 }
