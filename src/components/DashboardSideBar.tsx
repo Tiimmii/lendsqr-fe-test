@@ -1,16 +1,32 @@
 import { useState } from 'react';
 import './styles/dashboard.scss';
 
+type DashboardSideBarProps = {
+    clicked: boolean
+    setClicked: React.Dispatch<React.SetStateAction<boolean>>
+}
 {/* The Dashboard Sidebar Component */}
-const DashboardSideBar = () => {
+const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
     const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+    const [clickedSideBar, setClickedSideBar] = useState(false)
+
+    const toggleSideBar = ()=>{
+        setClickedSideBar(!clickedSideBar)
+        setClicked(!clicked)
+    }
 
     const handleOptionClick = (index: number) => {
         setClickedIndex(index === clickedIndex ? null : index);
     };
 
     return (
-        <div className='sidebar-container'>
+        <div className={`sidebar-container ${clickedSideBar && 'hide-side-bar'}`}>
+            <div style={{ position: 'fixed', top: '1rem', left: '15rem'}}>
+                    {clickedSideBar?
+                    '':
+                    <i className="fa-solid fa-x" onClick={toggleSideBar}></i>
+                    }
+            </div>
             <div className="sidebar">
                 <div className="sidebar-top-options">
                     <div className="switch-organization">

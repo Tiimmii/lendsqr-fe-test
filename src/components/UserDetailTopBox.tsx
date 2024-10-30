@@ -23,11 +23,14 @@ const UserDetailTopBox = ({userDetails}: UserDetailTopBoxProps) => {
         <div className="userdetails-main">
         {userDetails.map((item) => (
             <div key={item.id}>
-                <img src={Avatar} alt="User Avatar" />
-                <div>
+                <div className="avatar-container">
+                    <img src={Avatar} alt="User Avatar" className="avatar"/>
+                </div>
+                <div className="username-key">
                     <h2>{item.username}</h2>
                     <p>{item.Id_key}</p>
                 </div>
+                <div className="user-tier-container">
                 <div className="line"></div>
                 <div>
                     <p>User's Tier</p>
@@ -71,7 +74,8 @@ const UserDetailTopBox = ({userDetails}: UserDetailTopBoxProps) => {
                     </div>
                 </div>
                 <div className="line"></div>
-                <div>
+                </div>
+                <div className="bank-details">
                     <h2>{item.account_balance}</h2>  {/* Use item instead of user */}
                     <p>{item.bank_name}/{item.account_number}</p>  {/* Use item instead of user */}
                 </div>

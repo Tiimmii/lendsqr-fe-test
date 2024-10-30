@@ -10,6 +10,7 @@ const Dashboard = () => {
     const [data, setData] = useState([]);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
+    const [clickedSideBar, setClickedSideBar] = useState(true);
 
     useEffect(() => {
         axios.get('http://localhost:3000/users')
@@ -85,8 +86,8 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-container">
-            <DashboardHeader />
-            <DashboardSideBar />
+            <DashboardHeader clickedSideBar={clickedSideBar} setClickedSideBar={setClickedSideBar}/>
+            {clickedSideBar && <DashboardSideBar clicked={clickedSideBar} setClicked={setClickedSideBar}/>}
             <div className="dashboard-content">
                 <h1 className="dashboard-content-title">Users</h1>
                 <DashboardFloatingBoxes />
