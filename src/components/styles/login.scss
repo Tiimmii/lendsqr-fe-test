@@ -1,130 +1,133 @@
-$primary-color: #ffff;
-$lendsqr-text-primary-color: #213F7D;
+$primary-color: #ffff; // Primary color variable
+$lendsqr-text-primary-color: #213F7D; // Text primary color for Lendsqr branding
 
 .main-container {
-  background: $primary-color;
-  min-height: 100vh;
+  background: $primary-color; // Set background color to primary color
+  min-height: 100vh; // Ensure the container takes the full height of the viewport
   display: flex;
   flex: 1;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Avenir Next', sans-serif;
+  justify-content: center; // Center content horizontally
+  align-items: center; // Center content vertically
+  font-family: 'Avenir Next', sans-serif; // Set font family for the container
 
   .logo-container {
-    position: absolute;
-    top: 12%;
-    left: 6.74%;
+    position: absolute; // Position logo absolutely inside the container
+    top: 12%; // Place the logo 12% from the top
+    left: 6.74%; // Place the logo 6.74% from the left
 
     img {
-      width: 173px;
-      height: 26px;
+      width: 173px; // Set logo width
+      height: 26px; // Set logo height
     }
   }
 
   .sign-in-picture-container {
-    margin-left: 5%;
+    margin-left: 5%; // Add margin to the left for the image
+
     img {
-      width: 100%;
+      width: 100%; // Set image width to 100% of its container
     }
   }
 
   .login-form-container {
-    width: 50%;
-    display: flex;
+    width: 50%; // Set the width of the form container
+    display: flex; // Use flexbox for layout
 
     .login-form {
       display: flex;
-      flex-direction: column;
-      padding: 100px;
-      width: 100%;
+      flex-direction: column; // Arrange form elements in a column
+      padding: 100px; // Add padding inside the form container
+      width: 100%; // Full width of the form container
 
       .login-texts-top,
       .form form {
         display: flex;
-        flex-direction: column;
-        text-align: left;
+        flex-direction: column; // Arrange text and form elements in a column
+        text-align: left; // Align text to the left
       }
 
       .login-texts-top {
-        margin-bottom: 40px;
+        margin-bottom: 40px; // Add bottom margin
 
         .welcome-primary {
           font-weight: bold;
-          font-size: 40px;
-          line-height: 54px;
-          color: $lendsqr-text-primary-color;
+          font-size: 40px; // Set the font size for the welcome text
+          line-height: 54px; // Set line height for better readability
+          color: $lendsqr-text-primary-color; // Use Lendsqr primary text color
         }
 
         span {
-          color: #545F7D;
+          color: #545F7D; // Set secondary text color
           font-weight: 300;
-          font-size: 20px;
-          line-height: 27px;
-          margin-top: 7px;
+          font-size: 20px; // Set font size for secondary text
+          line-height: 27px; // Set line height for secondary text
+          margin-top: 7px; // Add space above the secondary text
         }
       }
 
       .form {
         form {
           display: flex;
-          flex-direction: column;
-          padding-right: 10px;
+          flex-direction: column; // Arrange input elements in a column
+          padding-right: 10px; // Add right padding for the form
 
           input {
-            height: 40px;
-            border: 2px solid #545F7D26;
-            border-radius: 5px;
-            margin-top: 15px;
-            padding-left: 12px;
-            width: 98%;
+            height: 40px; // Set input height
+            border: 2px solid #545F7D26; // Add a subtle border color
+            border-radius: 5px; // Round the input corners
+            margin-top: 15px; // Add space between input fields
+            padding-left: 12px; // Add left padding inside the input field
+            width: 98%; // Set input width
 
             &:focus {
-              border: 2px solid #545F7D26;
-              outline: none;
+              border: 2px solid #545F7D26; // Retain border on focus
+              outline: none; // Remove default outline on focus
             }
           }
 
           a {
-            color: #39CDCC;
-            text-decoration: none;
+            color: #39CDCC; // Set link color
+            text-decoration: none; // Remove underline from links
             padding-top: 15px;
             padding-bottom: 15px;
-            text-transform: uppercase;
+            text-transform: uppercase; // Make text uppercase
             font-size: 12px;
             font-weight: 600;
-            line-height: 17px;
+            line-height: 17px; // Set line height for link text
           }
-          .password-input{
-              position: relative; /* Make the container relative to position the button inside it */
 
-              .show-hide-password-button{
-              position: absolute;
-              right: 1rem;
-              top: 62%;
-              transform: translateY(-50%);
-              background: none;
-              border: none;
-              cursor: pointer;
-              color: #39CDCC;
-              
-              p{
+          .password-input {
+            position: relative; // Container is relative to position the button inside it
+
+            .show-hide-password-button {
+              position: absolute; // Position the show/hide button absolutely inside the input
+              right: 1rem; // Align button to the right of the input
+              top: 62%; // Vertically align the button with the input
+              transform: translateY(-50%); // Center the button vertically
+              background: none; // Remove background for the button
+              border: none; // Remove border for the button
+              cursor: pointer; // Show pointer cursor on hover
+              color: #39CDCC; // Set button text color
+
+              p {
                 font-weight: 600;
-                font-size: 12px;
-                line-height: 16.39px;
+                font-size: 12px; // Set font size for button text
+                line-height: 16.39px; // Set line height for button text
               }
             }
           }
+
           .login-button {
-            margin-top: 7px;
-            width: 100%;
-            height: 48px;
-            color: #fff;
-            border-radius: 8px;
-            border: none;
-            background: #39CDCC;
+            margin-top: 7px; // Add space above the login button
+            width: 100%; // Set button width to 100%
+            height: 48px; // Set button height
+            color: #fff; // Set button text color to white
+            border-radius: 8px; // Round the button corners
+            border: none; // Remove border for the button
+            background: #39CDCC; // Set background color for the button
 
             &:hover {
-              cursor: pointer;
+              cursor: pointer; // Show pointer cursor on hover
             }
           }
         }
@@ -137,77 +140,77 @@ $lendsqr-text-primary-color: #213F7D;
 @media (min-width: 1400px) {
   .logo-container {
     img {
-      top: 173.36px; /* Adjusted top */
-      left: 36px;    /* Adjusted left */
+      top: 173.36px; // Adjust logo position
+      left: 36px;    // Adjust logo position
     }
   }
 
   .sign-in-picture-container {
     img {
-      width: 600px;   /* Adjusted width */
-      height: 337.57px; /* Adjusted height */
+      width: 600px; // Adjust image width
+      height: 337.57px; // Adjust image height
     }
   }
 
   .form form input {
-    height: 50px; /* Adjusted input height */
+    height: 50px; // Increase input height on larger screens
   }
 
   .form .login-button {
-    height: 48px; /* Button height remains the same */
+    height: 48px; // Button height remains the same
   }
 }
+
 @media (max-width: 1120px) {
   .login-form-container {
-    width: 70% !important; /* Full width on smaller devices */
-
+    width: 70% !important; // Increase form container width on smaller devices
   }
+
   .login-form {
-    width: 100% !important;
-    padding: 15px !important;
+    width: 100% !important; // Ensure form takes full width
+    padding: 15px !important; // Adjust padding on smaller devices
   }
 }
+
 @media (max-width: 764px) {
   .sign-in-picture-container {
     img {
-      display: none; /* Hide image on smaller devices */
+      display: none; // Hide image on smaller devices
     }
   }
 
   .logo-container {
     img {
-      /* Adjusted logo position or size as needed */
-      top: 10%; 
-      left: 5%; 
+      top: 10%; // Adjust logo position on smaller devices
+      left: 5%; // Adjust logo position on smaller devices
     }
   }
 
   .login-form-container {
     display: flex;
     flex: 1;
-    width: 100%; /* Full width on smaller devices */
-
+    width: 100%; // Ensure form container takes full width
   }
 
   .login-form {
-    width: 100% !important;
-    padding: 20px !important;
-    .login-texts-top{
+    width: 100% !important; // Ensure form takes full width
+    padding: 20px !important; // Adjust padding on smaller devices
+
+    .login-texts-top {
       .welcome-primary {
-        font-size: 30px !important;
+        font-size: 30px !important; // Adjust welcome text font size on smaller devices
       }
-      span{
-        font-size: 20px !important;
+      span {
+        font-size: 20px !important; // Adjust secondary text font size on smaller devices
       }
     }
   }
 
-
   .form form input {
-    height: 40px; /* Retain original height */
+    height: 40px; // Retain original input height
   }
 
   .form .login-button {
-    height: 40px; /* Adjust button height for smaller devices */
+    height: 40px; // Adjust button height for smaller devices
   }
 }

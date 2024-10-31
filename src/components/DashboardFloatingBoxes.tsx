@@ -1,38 +1,48 @@
-import './styles/dashboard.scss'
+import './styles/dashboard.scss';
 
+// DashboardFloatingBoxes component to display key user statistics
 const DashboardFloatingBoxes = () => {
   return (
     <div className="dashboard-floating-boxes-container">
-        <div className="box">
-            <div className="icon1">
-                <i className="fa-solid fa-user-group"></i>
-            </div>
-            <p>USERS</p>
-            <span>2,453</span>
+      
+      {/* Box for Total Users */}
+      <div className="box">
+        <div className="icon1">
+          <i className="fa-solid fa-user-group"></i> {/* Icon for users */}
         </div>
-        <div className="box">
-            <div className="icon2">
-                <i className="fa-solid fa-users"></i>
-            </div>
-            <p>ACTIVE USERS</p>
-            <span>2,453</span>  
-        </div>
-        <div className="box">
-            <div className="icon3">
-                <i className="fa-solid fa-file-invoice-dollar"></i>
-            </div>
-            <p>USERS WITH LOAN</p>
-            <span>12,453</span>
-        </div>
-        <div className="box">
-            <div className="icon4">
-                <i className="fa-solid fa-coins"></i>
-            </div>
-            <p>USERS WITH SAVINGS</p>
-            <span>102,453</span>
-        </div>
-    </div>
-  )
-}
+        <p>USERS</p> {/* Label */}
+        <span>2,453</span> {/* Statistic */}
+      </div>
 
-export default DashboardFloatingBoxes
+      {/* Box for Active Users */}
+      <div className="box">
+        <div className="icon2">
+          <i className="fa-solid fa-users"></i> {/* Icon for active users */}
+        </div>
+        <p>ACTIVE USERS</p> {/* Label */}
+        <span>2,453</span> {/* Statistic */}
+      </div>
+
+      {/* Box for Users with Loans */}
+      <div className="box">
+        <div className="icon3">
+          <i className="fa-solid fa-file-invoice-dollar"></i> {/* Icon for loan holders */}
+        </div>
+        <p>USERS WITH LOAN</p> {/* Label */}
+        <span>12,453</span> {/* Statistic */}
+      </div>
+
+      {/* Box for Users with Savings */}
+      <div className="box">
+        <div className="icon4">
+          <i className="fa-solid fa-coins"></i> {/* Icon for savings */}
+        </div>
+        <p>USERS WITH SAVINGS</p> {/* Label */}
+        <span>102,453</span> {/* Statistic */}
+      </div>
+      
+    </div>
+  );
+};
+
+export default DashboardFloatingBoxes;

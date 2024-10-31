@@ -1,33 +1,42 @@
 import { useState } from 'react';
 import './styles/dashboard.scss';
 
+// Define prop types for DashboardSideBar component
 type DashboardSideBarProps = {
-    clicked: boolean
-    setClicked: React.Dispatch<React.SetStateAction<boolean>>
-}
+    clicked: boolean; // Tracks the sidebar state (open/close) in the parent
+    setClicked: React.Dispatch<React.SetStateAction<boolean>>; // Function to toggle sidebar state in the parent
+};
+
+// DashboardSideBar Component
 {/* The Dashboard Sidebar Component */}
-const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
-    const [clickedIndex, setClickedIndex] = useState<number | null>(null);
-    const [clickedSideBar, setClickedSideBar] = useState(false)
+const DashboardSideBar = ({ clicked, setClicked }: DashboardSideBarProps) => {
+    const [clickedIndex, setClickedIndex] = useState<number | null>(null); // Tracks the active sidebar option
+    const [clickedSideBar, setClickedSideBar] = useState(false); // Tracks if the sidebar is collapsed
 
-    const toggleSideBar = ()=>{
-        setClickedSideBar(!clickedSideBar)
-        setClicked(!clicked)
-    }
+    // Toggles sidebar open/close state both locally and in the parent component
+    const toggleSideBar = () => {
+        setClickedSideBar(!clickedSideBar);
+        setClicked(!clicked);
+    };
 
+    // Highlights the clicked sidebar option based on the index
     const handleOptionClick = (index: number) => {
-        setClickedIndex(index === clickedIndex ? null : index);
+        setClickedIndex(index === clickedIndex ? null : index); // Toggle clicked state for individual option
     };
 
     return (
         <div className={`sidebar-container ${clickedSideBar && 'hide-side-bar'}`}>
-            <div style={{ position: 'fixed', top: '1rem', left: '15rem'}}>
-                    {clickedSideBar?
-                    '':
+            
+            {/* Close button for the sidebar, appears only when sidebar is open */}
+            <div style={{ position: 'fixed', top: '1rem', left: '15rem' }}>
+                {clickedSideBar ? '' : (
                     <i className="fa-solid fa-x" onClick={toggleSideBar}></i>
-                    }
+                )}
             </div>
+
             <div className="sidebar">
+                
+                {/* Sidebar Top Options: Includes 'Switch Organization' and 'Dashboard' */}
                 <div className="sidebar-top-options">
                     <div className="switch-organization">
                         <i className="fa-solid fa-briefcase"></i>
@@ -40,6 +49,7 @@ const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
                     </div>
                 </div>
 
+                {/* Sidebar section for Customer options */}
                 <span>CUSTOMERS</span>
                 <div className="sidebar-options">
                     {[
@@ -51,6 +61,7 @@ const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
                         { label: "Whitelist", icon: "fa-user-check" },
                         { label: "Karma", icon: "fa-user-xmark" }
                     ].map((option, index) => (
+                        // Each option renders an icon and label, highlighted if active
                         <div
                             key={option.label}
                             onClick={() => handleOptionClick(index)}
@@ -62,6 +73,7 @@ const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
                     ))}
                 </div>
 
+                {/* Sidebar section for Business options */}
                 <span>BUSINESSES</span>
                 <div className="sidebar-options">
                     {[
@@ -75,9 +87,10 @@ const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
                         { label: "Settlements", icon: "fa-scroll" },
                         { label: "Reports", icon: "fa-chart-column" }
                     ].map((option, index) => (
+                        // Offset index to avoid conflicts with the previous section's index
                         <div
                             key={option.label}
-                            onClick={() => handleOptionClick(index + 7)} // Offset index to avoid conflicts with previous section
+                            onClick={() => handleOptionClick(index + 7)}
                             className={`sidebar-option ${clickedIndex === index + 7 ? 'clicked' : ''}`}
                         >
                             <i className={`fa-solid ${option.icon}`}></i>
@@ -86,6 +99,7 @@ const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
                     ))}
                 </div>
 
+                {/* Sidebar section for Settings options */}
                 <span>SETTINGS</span>
                 <div className="sidebar-options">
                     {[
@@ -93,9 +107,10 @@ const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
                         { label: "Fees and Pricing", icon: "fa-certificate" },
                         { label: "Audit logs", icon: "fa-clipboard-list" }
                     ].map((option, index) => (
+                        // Offset index to avoid conflicts with previous sections' index
                         <div
                             key={option.label}
-                            onClick={() => handleOptionClick(index + 16)} // Offset index to avoid conflicts with previous sections
+                            onClick={() => handleOptionClick(index + 16)}
                             className={`sidebar-option ${clickedIndex === index + 16 ? 'clicked' : ''}`}
                         >
                             <i className={`fa-solid ${option.icon}`}></i>
@@ -106,6 +121,6 @@ const DashboardSideBar = ({clicked, setClicked}: DashboardSideBarProps) => {
             </div>
         </div>
     );
-}
+};
 
 export default DashboardSideBar;

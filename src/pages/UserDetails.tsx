@@ -10,34 +10,45 @@ import { useNavigate } from 'react-router-dom';
 
 const UserDetails = () => {
   const [userDetails, setUserDetails] = useState([]);
-  const { id } = useParams();
+  const { id } = useParams();  // Get the user ID from the URL
   const [clickedSideBar, setClickedSideBar] = useState(false);
   const navigate = useNavigate();
-  console.log(id);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/users?_id=${id}`)
-      .then((result) => {
-        setUserDetails(result.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-  console.log(userDetails);
+    // Check if user details are already stored in localStorage
+    const storedUserDetails = localStorage.getItem(`userDetails_${id}`);
+    
+    if (storedUserDetails) {
+      // If details are found in localStorage, set them in state
+      setUserDetails(JSON.parse(storedUserDetails));
+    } else {
+      // If no details are found, fetch the data from the API
+      axios
+        .get(`http://localhost:3000/users?_id=${id}`)
+        .then((result) => {
+          setUserDetails(result.data);
+
+          // Store the fetched data in localStorage
+          localStorage.setItem(`userDetails_${id}`, JSON.stringify(result.data));
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [id]);  // Dependency array includes 'id' to re-run when the id changes
+
+  console.log(userDetails);  // Log the user details to the console
+
   return (
     <div className="user-detail-container">
       <DashboardHeader clickedSideBar={clickedSideBar} setClickedSideBar={setClickedSideBar} />
-      <DashboardSideBar clicked={clickedSideBar} setClicked={setClickedSideBar}/>
+      <DashboardSideBar clicked={clickedSideBar} setClicked={setClickedSideBar} />
       <div className="userdetails-container">
         <div className="dashboard-content">
           <div className="dashboard-goBack">
             <div>
               <img src={Back} />
-              <span onClick={()=>navigate('/dashboard')} style={{ cursor: 'pointer'}}> Back to Users</span>
+              <span onClick={() => navigate('/dashboard')} style={{ cursor: 'pointer' }}>Back to Users</span>
             </div>
-            <h1 className="dashboard-content-userDetailsTitle">
-              Users Details
-            </h1>
+            <h1 className="dashboard-content-userDetailsTitle">User Details</h1>
           </div>
           <div className="dashboard-content-userDetails">
             <div className="dashboard-functions">
@@ -46,6 +57,7 @@ const UserDetails = () => {
             </div>
           </div>
         </div>
+        {/* Pass the user details to the top and bottom components */}
         <UserDetailTopBox userDetails={userDetails} />
         <UserDetailBottomBox userDetails={userDetails} />
       </div>

@@ -5,59 +5,99 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [showPassword, setShowPassword] = useState(false)
+    // State variables for email, password, and password visibility
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    
+    // useNavigate hook for navigation after successful login
     const navigate = useNavigate();
 
-    const settingEmailValue = (e: React.ChangeEvent<HTMLInputElement>)=>{
-        setEmail(e.target.value)
-    }
+    // Handler for updating email state
+    const settingEmailValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    };
 
-    const settingPasswordValue = (e: React.ChangeEvent<HTMLInputElement>)=>{
-        setPassword(e.target.value)
-    }
+    // Handler for updating password state
+    const settingPasswordValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
+    };
 
+    // Toggles password visibility (show/hide)
     const togglePasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
+        e.preventDefault(); // Prevent form submission on button click
         setShowPassword(prevState => !prevState);
     };
 
+    // Sign-in function, checks hardcoded credentials, and navigates to dashboard if valid
     const signIn = () => {
-      email == "adeyemi@gmail.com" && password == "adeyemi"? navigate("/dashboard"): ''
+        if (email === "adeyemi@gmail.com" && password === "adeyemi") {
+            navigate("/dashboard");
+        }
     };
 
-  return (
-    <div className='main-container'>
-      <div className="logo-container">
-        <img src={grouped_icon} alt='lendsqr logo'></img>   {/* top left logo */}
-      </div>
-      <div className='sign-in-picture-container'>
-        <img src={sign_in_picture} alt='lendsqr signin picture'></img> {/* Left Login picture */}
-      </div>
-      <div className="login-form-container">
-        <div className="login-form">
-            <div className="login-texts-top">
-                <h1 className="welcome-primary">Welcome!</h1>
-                <span>Enter details to login.</span>
+    return (
+        <div className='main-container'>
+            {/* Logo container for top-left logo */}
+            <div className="logo-container">
+                <img src={grouped_icon} alt='lendsqr logo' />
             </div>
-            <div className="form">
-                <form>
-                    <input placeholder='Email' type='email' value={email} onChange={settingEmailValue} required></input>
-                    <div className="password-input">
-                        <input placeholder='Password' value={password} onChange={settingPasswordValue} type={showPassword? 'text': 'password'} required></input>
-                        <button className='show-hide-password-button' onClick={togglePasswordVisibility}>
-                            {password ?showPassword ? <p>HIDE</p>: <p>SHOW</p>:''}
-                        </button>
+            
+            {/* Left section with sign-in illustration */}
+            <div className='sign-in-picture-container'>
+                <img src={sign_in_picture} alt='lendsqr signin picture' />
+            </div>
+            
+            {/* Login form container */}
+            <div className="login-form-container">
+                <div className="login-form">
+                    {/* Top text displaying welcome message */}
+                    <div className="login-texts-top">
+                        <h1 className="welcome-primary">Welcome!</h1>
+                        <span>Enter details to login.</span>
                     </div>
-                    <a href='#'>Forgot Password?</a>
-                    <button className='login-button' onClick={signIn}>Login</button>
-                </form>
+                    
+                    {/* Form section for email and password input fields */}
+                    <div className="form">
+                        <form>
+                            {/* Email input field */}
+                            <input
+                                placeholder='Email'
+                                type='email'
+                                value={email}
+                                onChange={settingEmailValue}
+                                required
+                            />
+                            
+                            {/* Password input field with show/hide button */}
+                            <div className="password-input">
+                                <input
+                                    placeholder='Password'
+                                    value={password}
+                                    onChange={settingPasswordValue}
+                                    type={showPassword ? 'text' : 'password'}
+                                    required
+                                />
+                                {/* Toggle visibility button */}
+                                <button
+                                    className='show-hide-password-button'
+                                    onClick={togglePasswordVisibility}
+                                >
+                                    {password ? (showPassword ? <p>HIDE</p> : <p>SHOW</p>) : ''}
+                                </button>
+                            </div>
+
+                            {/* Forgot password link */}
+                            <a href='#'>Forgot Password?</a>
+
+                            {/* Login button, triggers signIn function */}
+                            <button className='login-button' onClick={signIn}>Login</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-    </div>
-  )
+    );
 }
 
-export default Login
+export default Login;
