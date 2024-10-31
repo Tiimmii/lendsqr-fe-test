@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const UserDetails = () => {
   const [userDetails, setUserDetails] = useState([]);
   const { id } = useParams();  // Get the user ID from the URL
-  const [clickedSideBar, setClickedSideBar] = useState(false);
+  const [_clickedSideBar, _setClickedSideBar] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,12 +35,13 @@ const UserDetails = () => {
     }
   }, [id]);  // Dependency array includes 'id' to re-run when the id changes
 
-  console.log(userDetails);  // Log the user details to the console
+  console.log(userDetails) 
+  console.log(_clickedSideBar) // Log the user details to the console
 
   return (
     <div className="user-detail-container">
-      <DashboardHeader clickedSideBar={clickedSideBar} setClickedSideBar={setClickedSideBar} />
-      <DashboardSideBar clicked={clickedSideBar} setClicked={setClickedSideBar} />
+      <DashboardHeader clickedSideBar={_clickedSideBar} setClickedSideBar={_setClickedSideBar} />
+      {_clickedSideBar && <DashboardSideBar clicked={_clickedSideBar} setClicked={_setClickedSideBar} />}
       <div className="userdetails-container">
         <div className="dashboard-content">
           <div className="dashboard-goBack">
