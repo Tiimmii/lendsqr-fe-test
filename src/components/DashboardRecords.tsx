@@ -98,7 +98,14 @@ const DashboardRecords = ({ records, maxItems }: DashboardRecordsProps) => {
           </Link>
         ))
       ) : (
-        <p>No Users at this time</p> // Message if no records are available after filtering
+        <div className="loading-container">
+        <p>Loading Data</p>
+        {[0,1,2,3].map((val)=>{  // Loop to display loading placeholders
+          return(
+            <div key={val} className={"loading "+`loading${val}`}></div>
+          )
+        })}
+      </div> // Message if no records are available after filtering
       )}
     </div>
   );
