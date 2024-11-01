@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import './styles/dashboard.scss';
-
-// Define prop types for DashboardSideBar component
-type DashboardSideBarProps = {
-    clicked: boolean; // Tracks the sidebar state (open/close) in the parent
-    setClicked: React.Dispatch<React.SetStateAction<boolean>>; // Function to toggle sidebar state in the parent
-};
+import { DashboardSideBarProps } from './types/types';
 
 // DashboardSideBar Component
 {/* The Dashboard Sidebar Component */}

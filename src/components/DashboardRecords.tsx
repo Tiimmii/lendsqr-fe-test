@@ -2,22 +2,7 @@ import { useEffect, useState } from "react";
 import "./styles/dashboard.scss";
 import { UserPage } from "../pages/UserPage"; // Import components for user filtering options
 import { Link } from "react-router-dom";
-
-// Define prop types for DashboardRecords
-type DashboardRecordsProps = {
-  records: Record<string, any>[]; // Array of record objects containing user details
-  maxItems: number; // Maximum number of items to display in the table
-};
-
-// Define the filter criteria type for filtering records
-type FilterCriteria = {
-    organization?: string;
-    username?: string;
-    email?: string;
-    date?: string;
-    phoneNumber?: string;
-    status?: string;
-};
+import { DashboardRecordsProps, FilterCriteria } from "./types/types";
 
 // DashboardRecords Component for displaying and filtering user records
 const DashboardRecords = ({ records, maxItems }: DashboardRecordsProps) => {

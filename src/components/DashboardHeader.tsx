@@ -2,12 +2,8 @@ import { useState } from "react";
 import grouped_icon from "../assets/Group.svg";
 import user_profile_picture from "../assets/image 4.png";
 import "./styles/dashboard.scss";
+import { DashboardHeaderProps } from "./types/types";
 
-// Define the prop types for the DashboardHeader component
-type DashboardHeaderProps = {
-  clickedSideBar: boolean;
-  setClickedSideBar: React.Dispatch<React.SetStateAction<boolean>>;
-};
 
 // The Dashboard Header Component
 const DashboardHeader = ({

@@ -1,10 +1,7 @@
-// Define prop types for UserDetailBottomBox component
-type UserDetailBottomBoxProps = {
-    userDetails: Record<string, any>[]; // Array of user detail records
-};
+import { UserDetailProps } from "./types/types";
 
 // Main UserDetailBottomBox component
-const UserDetailBottomBox = ({ userDetails }: UserDetailBottomBoxProps) => {
+const UserDetailBottomBox = ({ userDetails }: UserDetailProps) => {
     // Console log for debugging to check the user details being passed as props
     console.log(userDetails);
 

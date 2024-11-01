@@ -2,14 +2,10 @@ import Avatar from "../assets/avatar.svg";
 import starfilled from "../assets/star-filled.svg";
 import star from "../assets/star.svg";
 import { useState } from "react";
-
-// Define prop types for UserDetailTopBox component
-type UserDetailTopBoxProps = {
-    userDetails: Record<string, any>[]; // Array of user detail records
-};
+import { UserDetailProps } from "./types/types";
 
 // Main UserDetailTopBox component
-const UserDetailTopBox = ({ userDetails }: UserDetailTopBoxProps) => {
+const UserDetailTopBox = ({ userDetails }: UserDetailProps) => {
     
     // Define tabs for different sections
     const tabs = [
