@@ -38,6 +38,10 @@ npm run dev
   Below the dashboard records are options to show number of records and paginations. Feel free to set accordingly
   <img src='example_images/4.png'/> 
 </p>
+<p>
+  On Mobile devices Dashboard options from the right have been moved to a dropdown box when the dropdown icon is clicked
+  <img src='example_images/5.png'/> 
+</p>
 
 ## PS
 <p> Json was genereted using <a href='https://json-generator.com/#'>json-generator.com</a> and API mocked using <a href='https://designer.mocky.io/'>mocky.io</a></p>
