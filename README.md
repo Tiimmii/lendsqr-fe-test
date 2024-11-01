@@ -32,11 +32,11 @@ npm run dev
 </p>
 <p>
   on the table headers click the icon associated to each table header to filter users using options
-  <img src='example_images/3.png'/>
+  <img src='example_images/4.png'/>
 </p>
 <p>
   Below the dashboard records are options to show number of records and paginations. Feel free to set accordingly 
-  <img src='example_images/4.png'/>
+  <img src='example_images/3.png'/>
 </p>
 
 ## Author
