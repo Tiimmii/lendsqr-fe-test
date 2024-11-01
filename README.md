@@ -39,7 +39,7 @@ npm run dev
   <img src='example_images/4.png'/> 
 </p>
 <p>
-  On Mobile devices Dashboard options from the right have been moved to a dropdown box when the dropdown icon is clicked
+  On Mobile devices Dashboard options from the right have been moved to a dropdown box when the dropdown icon is clicked<br/>
   <img src='example_images/5.png'/> 
 </p>
 
