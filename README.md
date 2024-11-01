@@ -19,7 +19,11 @@ npm run build
 ## Usage
 
 ```sh
-visit login and use email adeyemi@gmail.com and password adeyemi to continue
+
+visit login using email adeyemi@gmail.com and password adeyemi to continue to dashboard.
+on the dashboard click any user on each table row to view the user details.
+on the table headers click the icon associated to each table header to filter users using options
+
 ```
 
 ## Author
@@ -30,10 +34,3 @@ visit login and use email adeyemi@gmail.com and password adeyemi to continue
 * Twitter: [@Timmi\_tech](https://twitter.com/Timmi\_tech)
 * Github: [@Tiimmii](https://github.com/Tiimmii)
 * LinkedIn: [@tiimmii](https://linkedin.com/in/tiimmii)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
