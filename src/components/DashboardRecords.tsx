@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles/dashboard.scss";
-import { UserPage, OptionBox } from "../pages/UserPage"; // Import components for user filtering options
+import { UserPage } from "../pages/UserPage"; // Import components for user filtering options
 import { Link } from "react-router-dom";
 
 // Define prop types for DashboardRecords
@@ -39,6 +39,8 @@ const DashboardRecords = ({ records, maxItems }: DashboardRecordsProps) => {
   const toggleOptionBox = (option: string) => {
     setActiveOption(activeOption === option ? null : option);
   };
+
+  console.log(toggleOptionBox)
 
   // Filter function to filter records based on criteria
   const handleFilter = (filters: FilterCriteria) => {

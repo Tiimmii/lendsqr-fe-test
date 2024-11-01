@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Define prop types for UserDetailBottomBox component
 type UserDetailBottomBoxProps = {
     userDetails: Record<string, any>[]; // Array of user detail records

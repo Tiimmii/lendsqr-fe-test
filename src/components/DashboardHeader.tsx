@@ -21,6 +21,7 @@ const DashboardHeader = ({
   const toggleSideBar = () => {
     setClickedSideBar(true);
   };
+  console.log(clickedSideBar)
 
   return (
     <div className="dashboard-header-container">
