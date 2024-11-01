@@ -12,6 +12,7 @@ const Dashboard = () => {
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
     const [clickedSideBar, setClickedSideBar] = useState(true);
+    const [loading, setLoading] = useState(true)
 
     // Fetch user data on initial load, with data storage and retrieval from localStorage
     useEffect(() => {
@@ -20,14 +21,17 @@ const Dashboard = () => {
         if (storedData) {
             // If data is found in localStorage, parse and set it to state
             setData(JSON.parse(storedData));
+            setLoading(false)
         } else {
             // Fetch data from API if not available in localStorage
             axios.get('https://run.mocky.io/v3/6c389ca0-7b0c-40b8-ade6-81da5ef4945a')
                 .then(result => {
                     setData(result.data); // Set fetched data to state
                     localStorage.setItem("userDetails", JSON.stringify(result.data)); // Store data in localStorage
+                    setLoading(false)
                 })
                 .catch(error => console.log(error));
+                setLoading(false)
         }
     }, []);
 
@@ -101,7 +105,19 @@ const Dashboard = () => {
 
         return pages;
     };
-
+    if (loading){
+        return(
+          <div className="loading-container">
+          <DashboardHeader clickedSideBar={clickedSideBar} setClickedSideBar={setClickedSideBar} />
+          <p>Loading Data</p>
+          {[0,1,2,3].map((val)=>{
+            return(
+              <div key={val} className={"loading "+`loading${val}`}></div>
+            )
+          })}
+          </div>
+        )
+    }
     return (
         <div className="dashboard-container">
             {/* Dashboard Header and Sidebar */}

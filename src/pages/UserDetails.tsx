@@ -20,7 +20,7 @@ const UserDetails = () => {
     
     if (storedUserDetails) {
       setUserDetails(JSON.parse(storedUserDetails));
-      setLoading(false);
+      setLoading(true);
     } else {
       axios
         .get(`https://run.mocky.io/v3/6c389ca0-7b0c-40b8-ade6-81da5ef4945a`)
@@ -30,7 +30,7 @@ const UserDetails = () => {
           setUserDetails(user);
           console.log(userDetails)
           localStorage.setItem(`userDetails_${id}`, JSON.stringify(user));
-          setLoading(false);
+          setLoading(true);
         })
         .catch((error) => {
           console.log(error);
@@ -40,8 +40,21 @@ const UserDetails = () => {
     }
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading){
+    return(
+      <div className="loading-container">
+      <DashboardHeader clickedSideBar={_clickedSideBar} setClickedSideBar={_setClickedSideBar} />
+      <p>Loading Data</p>
+      {[0,1,2,3].map((val)=>{
+        return(
+          <div key={val} className={"loading "+`loading${val}`}></div>
+        )
+      })}
+      </div>
+    )
+  }
+    
+  if (error) return <p>ERROR LOADING PAGE</p>;
 
   return (
     <div className="user-detail-container">
