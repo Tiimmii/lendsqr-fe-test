@@ -23,7 +23,7 @@ npm run dev
 ```
 ## Navigating Around
 <p>
-  visit login using email adeyemi@gmail.com and password adeyemi to continue to dashboard.
+   Login using email adeyemi@gmail.com and password adeyemi to continue to dashboard.
   <img src='example_images/1.png'/>
 </p>
 <p>
