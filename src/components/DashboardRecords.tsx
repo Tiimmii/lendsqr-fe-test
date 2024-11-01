@@ -98,7 +98,7 @@ const DashboardRecords = ({ records, maxItems }: DashboardRecordsProps) => {
           </Link>
         ))
       ) : (
-        <div className="loading-container">
+        <div className="loading-container" style={{padding:'7px'}}>
         <p>Loading Data</p>
         {[0,1,2,3].map((val)=>{  // Loop to display loading placeholders
           return(
