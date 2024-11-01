@@ -21,7 +21,7 @@ npm run build
 ```sh
 npm run dev
 ```
-
+## Navigating Around
 <p>
   visit login using email adeyemi@gmail.com and password adeyemi to continue to dashboard.
   <img src='example_images/1.png'/>
@@ -38,6 +38,9 @@ npm run dev
   Below the dashboard records are options to show number of records and paginations. Feel free to set accordingly
   <img src='example_images/4.png'/> 
 </p>
+
+## PS
+<p> Json was genereted using <a href='https://json-generator.com/#'>json-generator.com</a> and API mocked using <a href='https://designer.mocky.io/'>mocky.io</a></p>
 
 ## Author
 
