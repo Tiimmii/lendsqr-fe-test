@@ -19,7 +19,7 @@ const Pages = () => {
 			*/}
 			<Routes location={location} key={location.pathname}>
 				{/* Route for the login page */}
-				<Route path="/login" element={<Login />} />
+				<Route path="" element={<Login />} />
                 
 				{/* Route for the dashboard page */}
                 <Route path="/dashboard" element={<Dashboard />} />
