@@ -19,6 +19,7 @@ npm run build
 ## Usage
 
 ```sh
+npm run dev
 
 visit login using email adeyemi@gmail.com and password adeyemi to continue to dashboard.
 on the dashboard click any user on each table row to view the user details.
