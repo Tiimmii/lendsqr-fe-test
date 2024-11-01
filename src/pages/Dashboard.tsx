@@ -7,13 +7,13 @@ import axios from "axios";
 import DashboardRecords from "../components/DashboardRecords";
 
 const Dashboard = () => {
-    // State for user data, items per page, current page, and sidebar visibility
+    // State for user data, items per page, current page, conditional for loading and error and sidebar visibility
     const [data, setData] = useState([]);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
     const [clickedSideBar, setClickedSideBar] = useState(true);
     const [loading, setLoading] = useState(true)
-
+    const [error, setError] = useState('')
     // Fetch user data on initial load, with data storage and retrieval from localStorage
     useEffect(() => {
         // Attempt to get data from localStorage
@@ -32,6 +32,7 @@ const Dashboard = () => {
                 })
                 .catch(error => console.log(error));
                 setLoading(false)
+                setError(error)
         }
     }, []);
 
@@ -118,6 +119,7 @@ const Dashboard = () => {
           </div>
         )
     }
+    if (error) return <p>ERROR LOADING PAGE</p>;
     return (
         <div className="dashboard-container">
             {/* Dashboard Header and Sidebar */}
