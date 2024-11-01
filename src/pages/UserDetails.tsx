@@ -4,41 +4,44 @@ import DashboardSideBar from "../components/DashboardSideBar";
 import Back from "../assets/Back.svg";
 import UserDetailTopBox from "../components/UserDetailTopBox";
 import UserDetailBottomBox from "../components/UserDetailBottomBox";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
 
 const UserDetails = () => {
-  const [userDetails, setUserDetails] = useState([]);
-  const { id } = useParams();  // Get the user ID from the URL
+  const [userDetails, setUserDetails] = useState(null);
+  const { id } = useParams();
   const [_clickedSideBar, _setClickedSideBar] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    // Check if user details are already stored in localStorage
     const storedUserDetails = localStorage.getItem(`userDetails_${id}`);
     
     if (storedUserDetails) {
-      // If details are found in localStorage, set them in state
       setUserDetails(JSON.parse(storedUserDetails));
+      setLoading(false);
     } else {
-      // If no details are found, fetch the data from the API
       axios
         .get(`https://run.mocky.io/v3/6c389ca0-7b0c-40b8-ade6-81da5ef4945a`)
         .then((result) => {
+          console.log(result)
           const user = result.data.find((user:any) => user._id === id);
           setUserDetails(user);
-
-          // Store the fetched data in localStorage
+          console.log(userDetails)
           localStorage.setItem(`userDetails_${id}`, JSON.stringify(user));
+          setLoading(false);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+          setError("Failed to load user details");
+          setLoading(false);
+        });
     }
-  }, [id]);  // Dependency array includes 'id' to re-run when the id changes
+  }, [id]);
 
-  console.log(userDetails) 
-  console.log(_clickedSideBar) // Log the user details to the console
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="user-detail-container">
@@ -48,7 +51,7 @@ const UserDetails = () => {
         <div className="dashboard-content">
           <div className="dashboard-goBack">
             <div>
-              <img src={Back} />
+              <img src={Back} alt="Back" />
               <span onClick={() => navigate('/dashboard')} style={{ cursor: 'pointer' }}>Back to Users</span>
             </div>
             <h1 className="dashboard-content-userDetailsTitle">User Details</h1>
@@ -60,9 +63,12 @@ const UserDetails = () => {
             </div>
           </div>
         </div>
-        {/* Pass the user details to the top and bottom components */}
-        <UserDetailTopBox userDetails={userDetails} />
-        <UserDetailBottomBox userDetails={userDetails} />
+        {userDetails && (
+          <>
+            <UserDetailTopBox userDetails={userDetails} />
+            <UserDetailBottomBox userDetails={userDetails} />
+          </>
+        )}
       </div>
     </div>
   );

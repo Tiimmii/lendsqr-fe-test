@@ -4,10 +4,7 @@ import star from "../assets/star.svg";
 import { useState } from "react";
 import { UserDetailProps } from "./types/types";
 
-// Main UserDetailTopBox component
 const UserDetailTopBox = ({ userDetails }: UserDetailProps) => {
-    
-    // Define tabs for different sections
     const tabs = [
         "General Details",
         "Documents",
@@ -17,94 +14,62 @@ const UserDetailTopBox = ({ userDetails }: UserDetailProps) => {
         "App and System",
     ];
 
-    // State to manage the active tab selection
     const [activeTab, setActiveTab] = useState(tabs[0]);
 
     return (
         <div className="userdetails-mainContainer">
-            {/* Main container for user details */}
             <div className="userdetails-main">
-                
-                {/* Map through userDetails to display each user's info */}
-                {userDetails.map((item) => (
-                    <div key={item.id}>
-                        
-                        {/* Avatar container */}
-                        <div className="avatar-container">
-                            <img src={Avatar} alt="User Avatar" className="avatar" />
-                        </div>
+                <div>
+                    {/* Avatar container */}
+                <div className="avatar-container">
+                    <img src={Avatar} alt="User Avatar" className="avatar" />
+                </div>
 
-                        {/* Display username and ID */}
-                        <div className="username-key">
-                            <h2>{item.username}</h2>
-                            <p>{item.Id_key}</p>
-                        </div>
+                {/* Display username and ID */}
+                <div className="username-key">
+                    <h2>{userDetails.username}</h2>
+                    <p>{userDetails.Id_key}</p>
+                </div>
 
-                        {/* Display user's tier with corresponding star icons */}
-                        <div className="user-tier-container">
-                            <div className="line"></div>
-                            <div>
-                                <p>User's Tier</p>
-                                <div>
-                                    {/* Conditional rendering of stars based on the user's tier */}
-                                    {item["User's_Tier"] === 1 ? (
-                                        <div style={{
-                                            display: "flex",
-                                            flexDirection: "row",
-                                            alignItems: "center",
-                                            gap: "5px",
-                                        }}>
-                                            <img src={starfilled} alt="Filled Star" />
-                                            <img src={star} alt="Star" />
-                                            <img src={star} alt="Star" />
-                                        </div>
-                                    ) : item["User's_Tier"] === 2 ? (
-                                        <div style={{
-                                            display: "flex",
-                                            flexDirection: "row",
-                                            alignItems: "center",
-                                            gap: "5px",
-                                        }}>
-                                            <img src={starfilled} alt="Filled Star" />
-                                            <img src={starfilled} alt="Star" />
-                                            <img src={star} alt="Star" />
-                                        </div>
-                                    ) : item["User's_Tier"] === 3 ? (
-                                        <div style={{
-                                            display: "flex",
-                                            flexDirection: "row",
-                                            alignItems: "center",
-                                            gap: "5px",
-                                        }}>
-                                            <img src={starfilled} alt="Filled Star" />
-                                            <img src={starfilled} alt="Star" />
-                                            <img src={starfilled} alt="Star" />
-                                        </div>
-                                    ) : (
-                                        ''  // Empty case for unassigned tiers
-                                    )}
-                                </div>
-                            </div>
-                            <div className="line"></div> {/* Divider line */}
-                        </div>
-
-                        {/* Display account balance, bank name, and account number */}
-                        <div className="bank-details">
-                            <h2>{item.account_balance}</h2>
-                            <p>{item.bank_name}/{item.account_number}</p>
+                {/* Display user's tier with corresponding star icons */}
+                <div className="user-tier-container">
+                    <div className="line"></div>
+                    <div>
+                        <p>User's Tier</p>
+                        <div style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            gap: "5px",
+                        }}>
+                            {/* Render star icons based on the user's tier */}
+                            {[...Array(3)].map((_, i) => (
+                                <img
+                                    key={i}
+                                    src={i < userDetails["User's_Tier"] ? starfilled : star}
+                                    alt={i < userDetails["User's_Tier"] ? "Filled Star" : "Star"}
+                                />
+                            ))}
                         </div>
                     </div>
-                ))}
+                    <div className="line"></div>
+                    {/* Display account balance, bank name, and account number */}
+                    <div className="bank-details">
+                        <h2>{userDetails.account_balance}</h2>
+                        <p>{userDetails.bank_name}/{userDetails.account_number}</p>
+                    </div>    
+                </div>    
+            </div>
 
                 {/* Tab navigation for different sections */}
                 <div className="userdetails-main-tabs">
                     {tabs.map((tab: string) => {
-                        const active = activeTab === tab; // Check if the current tab is active
+                        const active = activeTab === tab;
                         return (
                             <button
-                                key={tab} // Add key for each tab button
-                                className={`userdetails-main-tabs-buttons ${active && 'active'}`} // Apply active class if tab is selected
-                                onClick={() => setActiveTab(tab)} // Set active tab on button click
+                                key={tab}
+                                className={`userdetails-main-tabs-buttons ${active && 'active'}`}
+                                onClick={() => setActiveTab(tab)}
                             >
                                 {tab}
                             </button>

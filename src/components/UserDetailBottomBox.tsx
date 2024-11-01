@@ -2,188 +2,128 @@ import { UserDetailProps } from "./types/types";
 
 // Main UserDetailBottomBox component
 const UserDetailBottomBox = ({ userDetails }: UserDetailProps) => {
-    // Console log for debugging to check the user details being passed as props
-    console.log(userDetails);
+    if (!userDetails) return null; // Return null if userDetails is not loaded
 
     return (
         <div className="user-detail-bottom-box-container">
-            
-            {/* Section for displaying personal information */}
+            {/* Personal Information Section */}
             <div className="user-details">
                 <p>Personal Information</p>
                 <div className="outlined-user-details-container">
-                    {
-                        // Loop through each user detail record and render personal information fields
-                        userDetails.map((detail) => (
-                            <div className="outlined-user-details-container" key={detail.username}>
-                                <div className='outlined-user-details'>
-                                    <p>FULL NAME</p>
-                                    <span>{detail.username}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>PHONE NUMBER</p>
-                                    <span>{detail.phone_number}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>EMAIL ADDRESS</p>
-                                    <span style={{ textTransform: 'lowercase' }}>{detail.normalmail}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>BVN</p>
-                                    <span>{detail.BVN}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>GENDER</p>
-                                    <span>{detail.gender}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>MARITAL STATUS</p>
-                                    <span>{detail.marital_status}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>CHILDREN</p>
-                                    <span>{detail.children}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>TYPE OF RESIDENCE</p>
-                                    <span>{detail.type_of_residence}</span>
-                                </div>
-                            </div>
-                        ))
-                    }
+                    <div className='outlined-user-details'>
+                        <p>FULL NAME</p>
+                        <span>{userDetails.username}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>PHONE NUMBER</p>
+                        <span>{userDetails.phone_number}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>EMAIL ADDRESS</p>
+                        <span style={{ textTransform: 'lowercase' }}>{userDetails.normalmail}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>BVN</p>
+                        <span>{userDetails.BVN}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>GENDER</p>
+                        <span>{userDetails.gender}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>MARITAL STATUS</p>
+                        <span>{userDetails.marital_status}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>CHILDREN</p>
+                        <span>{userDetails.children}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>TYPE OF RESIDENCE</p>
+                        <span>{userDetails.type_of_residence}</span>
+                    </div>
                 </div>
-                <div className="user-detail-divider"></div> {/* Divider between sections */}
+                <div className="user-detail-divider"></div>
             </div>
 
-            {/* Section for displaying education and employment details */}
+            {/* Education and Employment Section */}
             <div className="user-details">
                 <p>Education and Employment</p>
                 <div className="outlined-user-details-container">
-                    {
-                        // Map through user details and render education and employment details
-                        userDetails.map((detail) => (
-                            <div className="outlined-user-details-container" key={detail.level_of_education}>
-                                <div className='outlined-user-details'>
-                                    <p>LEVEL OF EDUCATION</p>
-                                    <span>{detail.level_of_education}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>EMPLOYMENT STATUS</p>
-                                    <span>{detail.employment_status}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>SECTOR OF EMPLOYMENT</p>
-                                    <span>{detail.sector_of_employment}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>DURATION OF EMPLOYMENT</p>
-                                    <span>{detail.duration_of_employment}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>OFFICE EMAIL</p>
-                                    <span style={{ textTransform: 'lowercase' }}>{detail.email}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>MONTHLY INCOME</p>
-                                    <span>{detail.monthly_income}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>LOAN REPAYMENT</p>
-                                    <span>{detail.loan_repayment}</span>
-                                </div>
-                            </div>
-                        ))
-                    }
+                    <div className='outlined-user-details'>
+                        <p>LEVEL OF EDUCATION</p>
+                        <span>{userDetails.level_of_education}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>EMPLOYMENT STATUS</p>
+                        <span>{userDetails.employment_status}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>SECTOR OF EMPLOYMENT</p>
+                        <span>{userDetails.sector_of_employment}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>DURATION OF EMPLOYMENT</p>
+                        <span>{userDetails.duration_of_employment}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>OFFICE EMAIL</p>
+                        <span style={{ textTransform: 'lowercase' }}>{userDetails.email}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>MONTHLY INCOME</p>
+                        <span>{userDetails.monthly_income}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>LOAN REPAYMENT</p>
+                        <span>{userDetails.loan_repayment}</span>
+                    </div>
                 </div>
-                <div className="user-detail-divider"></div> {/* Divider between sections */}
+                <div className="user-detail-divider"></div>
             </div>
 
-            {/* Section for displaying social media links */}
+            {/* Social Media Section */}
             <div className="user-details">
                 <p>Socials</p>
                 <div className="outlined-user-details-container">
-                    {
-                        // Map through user details and render social media fields
-                        userDetails.map((detail) => (
-                            <div className="outlined-user-details-container" key={detail.Twitter}>
-                                <div className='outlined-user-details'>
-                                    <p>TWITTER</p>
-                                    <span style={{ textTransform: 'lowercase' }}>{detail.Twitter}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>FACEBOOK</p>
-                                    <span style={{ textTransform: 'lowercase' }}>{detail.Facebook}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>Instagram</p>
-                                    <span>{detail.Instagram}</span>
-                                </div>
-                            </div>
-                        ))
-                    }
+                    <div className='outlined-user-details'>
+                        <p>TWITTER</p>
+                        <span style={{ textTransform: 'lowercase' }}>{userDetails.Twitter}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>FACEBOOK</p>
+                        <span style={{ textTransform: 'lowercase' }}>{userDetails.Facebook}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>INSTAGRAM</p>
+                        <span>{userDetails.Instagram}</span>
+                    </div>
                 </div>
-                <div className="user-detail-divider"></div> {/* Divider between sections */}
+                <div className="user-detail-divider"></div>
             </div>
 
-            {/* Section for displaying guarantor information */}
+            {/* Guarantor Information Section */}
             <div className="user-details">
                 <p>Guarantor</p>
                 <div className="outlined-user-details-container">
-                    {
-                        // Map through user details and render guarantor details
-                        userDetails.map((detail) => (
-                            <div className="outlined-user-details-container" key={detail.guarantor_fullname}>
-                                <div className='outlined-user-details'>
-                                    <p>FULL NAME</p>
-                                    <span>{detail.guarantor_fullname}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>PHONE NUMBER</p>
-                                    <span>{detail.guarantor_phone_number}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>EMAIL ADDRESS</p>
-                                    <span style={{ textTransform: 'lowercase' }}>{detail.guarantor_email}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>RELATIONSHIP</p>
-                                    <span>{detail.relationship}</span>
-                                </div>
-                            </div>
-                        ))
-                    }
+                    <div className='outlined-user-details'>
+                        <p>FULL NAME</p>
+                        <span>{userDetails.guarantor_fullname}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>PHONE NUMBER</p>
+                        <span>{userDetails.guarantor_phone_number}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>EMAIL ADDRESS</p>
+                        <span style={{ textTransform: 'lowercase' }}>{userDetails.guarantor_email}</span>
+                    </div>
+                    <div className='outlined-user-details'>
+                        <p>RELATIONSHIP</p>
+                        <span>{userDetails.relationship}</span>
+                    </div>
                 </div>
-                <div className="user-detail-divider"></div> {/* Divider between sections */}
-            </div>
-
-            {/* Additional section for any repeated details, such as guarantor details again if needed */}
-            <div className="user-details">
-                <div className="outlined-user-details-container">
-                    {
-                        // Map through user details and render repeated guarantor details if necessary
-                        userDetails.map((detail) => (
-                            <div className="outlined-user-details-container" key={detail.guarantor_fullname + '-repeated'}>
-                                <div className='outlined-user-details'>
-                                    <p>FULL NAME</p>
-                                    <span>{detail.guarantor_fullname}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>PHONE NUMBER</p>
-                                    <span>{detail.guarantor_phone_number}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>EMAIL ADDRESS</p>
-                                    <span style={{ textTransform: 'lowercase' }}>{detail.guarantor_email}</span>
-                                </div>
-                                <div className='outlined-user-details'>
-                                    <p>RELATIONSHIP</p>
-                                    <span>{detail.relationship}</span>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-                <div className="user-detail-divider"></div> {/* Divider between sections */}
+                <div className="user-detail-divider"></div>
             </div>
         </div>
     );

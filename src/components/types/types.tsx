@@ -18,7 +18,7 @@ export type DashboardSideBarProps = {
 
 // Define prop types for UserDetailBottomBox component
 export type UserDetailProps = {
-    userDetails: Record<string, any>[]; // Array of user detail records
+    userDetails: Record<string, any>; // Array of user detail records
 };
 
 // Define the filter criteria type for filtering records
