@@ -20,15 +20,24 @@ npm run build
 
 ```sh
 npm run dev
+```
 
 <p>
   visit login using email adeyemi@gmail.com and password adeyemi to continue to dashboard.
-  <img src='example_images/1.png'>
+  <img src='example_images/1.png'/>
 </p>
-on the dashboard click any user on each table row to view the user details.
-on the table headers click the icon associated to each table header to filter users using options
-Below the dashboard records are options to show number of records and paginations. Feel free to set accordingly
-```
+<p>
+  on the dashboard click any user on each table row to view the user details.
+  <img src='example_images/2.png'/>
+</p>
+<p>
+  on the table headers click the icon associated to each table header to filter users using options
+  <img src='example_images/3.png'/>
+</p>
+<p>
+  Below the dashboard records are options to show number of records and paginations. Feel free to set accordingly 
+  <img src='example_images/4.png'/>
+</p>
 
 ## Author
 
