@@ -22,7 +22,7 @@ const Dashboard = () => {
             setData(JSON.parse(storedData));
         } else {
             // Fetch data from API if not available in localStorage
-            axios.get('http://localhost:3000/users')
+            axios.get('https://run.mocky.io/v3/6c389ca0-7b0c-40b8-ade6-81da5ef4945a')
                 .then(result => {
                     setData(result.data); // Set fetched data to state
                     localStorage.setItem("userDetails", JSON.stringify(result.data)); // Store data in localStorage

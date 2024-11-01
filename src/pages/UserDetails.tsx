@@ -14,6 +14,7 @@ const UserDetails = () => {
   const [_clickedSideBar, _setClickedSideBar] = useState(true);
   const navigate = useNavigate();
 
+
   useEffect(() => {
     // Check if user details are already stored in localStorage
     const storedUserDetails = localStorage.getItem(`userDetails_${id}`);
@@ -24,12 +25,13 @@ const UserDetails = () => {
     } else {
       // If no details are found, fetch the data from the API
       axios
-        .get(`http://localhost:3000/users?_id=${id}`)
+        .get(`https://run.mocky.io/v3/6c389ca0-7b0c-40b8-ade6-81da5ef4945a`)
         .then((result) => {
-          setUserDetails(result.data);
+          const user = result.data.find((user:any) => user._id === id);
+          setUserDetails(user);
 
           // Store the fetched data in localStorage
-          localStorage.setItem(`userDetails_${id}`, JSON.stringify(result.data));
+          localStorage.setItem(`userDetails_${id}`, JSON.stringify(user));
         })
         .catch((error) => console.log(error));
     }
