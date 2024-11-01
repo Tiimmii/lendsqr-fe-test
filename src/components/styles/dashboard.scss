@@ -838,12 +838,11 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    padding: 30px;
+    padding: 70px;
     .loading{
         animation: width 5s linear infinite;
         margin-right: auto;
-        height: 20px;
-        width: 20px;
+        height: 15px;
         background: #7689AE;
         border-radius: 100px;
     }

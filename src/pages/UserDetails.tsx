@@ -21,7 +21,7 @@ const UserDetails = () => {
     
     if (storedUserDetails) {
       setUserDetails(JSON.parse(storedUserDetails));  // Load from localStorage if available
-      setLoading(true);  // Set loading to true if data found in localStorage
+      setLoading(false);  // Set loading to true if data found in localStorage
     } else {
       // If not found in localStorage, make an API call to fetch user details
       axios
@@ -30,7 +30,7 @@ const UserDetails = () => {
           const user = result.data.find((user: any) => user._id === id);  // Find user by ID
           setUserDetails(user);  // Set fetched user data to state
           localStorage.setItem(`userDetails_${id}`, JSON.stringify(user));  // Store user data in localStorage for future access
-          setLoading(true);  // Set loading to true after successful fetch
+          setLoading(false);  // Set loading to true after successful fetch
         })
         .catch((error) => {
           console.log(error);  // Log errors to the console
